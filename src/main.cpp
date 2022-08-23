@@ -1,4 +1,4 @@
-#include "algoUsed.h"
+#include "algorithms.h"
 #include "SuperHero.h"
 
 int main(){

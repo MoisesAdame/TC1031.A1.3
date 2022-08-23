@@ -1,5 +1,5 @@
-#ifndef __ALGOUSED
-#define __ALGOUSED
+#ifndef __ALGORITHMS
+#define __ALGORITHMS
 
 #pragma once
 #include "SuperHero.h"
