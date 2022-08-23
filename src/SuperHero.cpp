@@ -133,3 +133,7 @@ bool SuperHero::operator > (SuperHero &superHero){
 bool SuperHero::operator < (SuperHero &superHero){
     return name < superHero.getName();
 }
+
+bool SuperHero::operator == (char firstLetter){
+    return name[0] == firstLetter;
+}

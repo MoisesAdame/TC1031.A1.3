@@ -61,6 +61,7 @@ class SuperHero{
         // Additional methods
         bool operator > (SuperHero &superHero);
         bool operator < (SuperHero &superHero);
+        bool operator == (char firstLetter);
 };
 
 #endif
