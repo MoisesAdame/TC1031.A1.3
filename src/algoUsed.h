@@ -24,13 +24,49 @@ vector<vector<string> > readCsv(string csvDocumentName){
             content.push_back(row);
         }
     }
+    file.close();
     return content;
 }
 
 vector<SuperHero*> csv2Object(vector<vector<string> > content){
     vector<SuperHero*> superHeroes;
+    stringstream ss;
+    int id, appearance, year;
     for(int i = 1; i < content.size(); i++){
-        superHeroes.push_back(new SuperHero(stoi(content[i][0]), content[i][1], content[i][2], content[i][3], content[i][4], content[i][5], content[i][6], content[i][7], content[i][8], content[i][9], stoi(content[i][10]), content[i][11], stoi(content[i][12])));
+        try{
+            ss << content[i][0];
+            ss >> id;
+
+            ss << content[i][10];
+            ss >> appearance;
+
+            ss << content[i][12];
+            ss >> year;
+            superHeroes.push_back(new SuperHero(id, content[i][1], content[i][2], content[i][3], content[i][4], content[i][5], content[i][6], content[i][7], content[i][8], content[i][9], appearance, content[i][11], year));
+        }catch(...){
+            for(int j = 0; j < 13; j++){
+                if(content[i][j].size() <= 1){
+                    if(j == 10 || j == 12){
+                        content[i][j] = "-1";
+                    }else{
+                        content[i][j] = "No Data";
+                    }
+                }
+            }
+            int id;
+            ss << content[i][0];
+            ss >> id;
+
+            int appearance;
+            ss << content[i][10];
+            ss >> appearance;
+
+            int year;
+            ss << content[i][12];
+            ss >> year;
+            superHeroes.push_back(new SuperHero(id, content[i][1], content[i][2], content[i][3], content[i][4], content[i][5], content[i][6], content[i][7], content[i][8], content[i][9], appearance, content[i][11], year));
+            cout << content[i][0] << endl;
+        }
     }
     return superHeroes;
 }
