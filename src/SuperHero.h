@@ -60,6 +60,7 @@ class SuperHero{
         
         // Additional methods
         void print();
+        string toCsvLine();
         bool operator > (SuperHero &superHero);
         bool operator < (SuperHero &superHero);
         bool operator == (char firstLetter);

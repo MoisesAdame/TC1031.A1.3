@@ -11,6 +11,9 @@ int main(){
     cout << "Sorting..." << endl;
     bubbleSort<vector<SuperHero> >(&superHeroes, superHeroes.size());
 
+    writeCsv(superHeroes);
+
+    /*
     char letraObjetivo = ' ';
     cout << "Dime letra objetivo: ";
     cin >> letraObjetivo;
@@ -23,6 +26,7 @@ int main(){
             superHeroes[i].print();
         }
     }
+    */
 
     return 0;
 }

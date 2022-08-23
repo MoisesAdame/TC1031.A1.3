@@ -141,6 +141,25 @@ void SuperHero::print(){
          << endl;
 }
 
+string SuperHero::toCsvLine(){
+    string line = "";
+    line += to_string(pageID) + ",";
+    line += name + ",";
+    line += urlslug + ",";
+    line += ID + ",";
+    line += align + ",";
+    line += eye + ",";
+    line += hair + ",";
+    line += sex + ",";
+    line += gsm + ",";
+    line += alive + ",";
+    line += to_string(appearances) + ",";
+    line += firstAppearance + ",";
+    line += to_string(year) + "\n";
+
+    return line;
+}
+
 bool SuperHero::operator > (SuperHero &superHero){
     return name > superHero.getName();
 }
