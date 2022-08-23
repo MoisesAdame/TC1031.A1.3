@@ -59,6 +59,7 @@ class SuperHero{
         void setYear(int year);
         
         // Additional methods
+        void print();
         bool operator > (SuperHero &superHero);
         bool operator < (SuperHero &superHero);
         bool operator == (char firstLetter);

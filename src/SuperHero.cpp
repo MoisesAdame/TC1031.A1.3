@@ -126,6 +126,21 @@ void SuperHero::setYear(int year){
 }
 
 // Additional methods
+void SuperHero::print(){
+    cout << "[*] " << name << endl
+         << "\t- Identity: " << ID << endl
+         << "\t- Align: " << align << endl
+         << "\t- Eyes: " << eye << endl
+         << "\t- Hair: " << hair << endl
+         << "\t- Sex: " << sex << endl
+         << "\t- GSM: " << gsm << endl
+         << "\t- Alive:" << alive << endl
+         << "\t- Appearances: " << appearances << endl
+         << "\t- First Appearance: " << firstAppearance << endl
+         << "\t- Year: " << year  << endl
+         << endl;
+}
+
 bool SuperHero::operator > (SuperHero &superHero){
     return name > superHero.getName();
 }

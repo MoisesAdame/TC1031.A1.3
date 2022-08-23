@@ -94,7 +94,7 @@ void bubbleSort(T* arr, int size){
 
 template <typename T, typename U>
 int linearSearch(T arr, int size, U target){
-    for(int i = 0; i < size;s i++){
+    for(int i = 0; i < size; i++){
         if(arr[i] == target){
             return i;
         }

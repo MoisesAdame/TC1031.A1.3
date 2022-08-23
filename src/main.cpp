@@ -8,7 +8,6 @@ int main(){
     cout << "Vector to superheroes..." << endl;
     vector<SuperHero> superHeroes = csv2Object(content);
 
-
     cout << "Sorting..." << endl;
     bubbleSort<vector<SuperHero> >(&superHeroes, superHeroes.size());
 
@@ -21,11 +20,9 @@ int main(){
         if(!(superHeroes[i] == letraObjetivo)){
             break;
         }else{
-            cout << superHeroes[i].getName() << endl;
+            superHeroes[i].print();
         }
     }
 
-    
-    
     return 0;
 }
