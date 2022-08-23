@@ -28,8 +28,8 @@ vector<vector<string> > readCsv(string csvDocumentName){
     return content;
 }
 
-vector<SuperHero*> csv2Object(vector<vector<string> > content){
-    vector<SuperHero*> superHeroes;
+vector<SuperHero> csv2Object(vector<vector<string> > content){
+    vector<SuperHero> superHeroes;
     stringstream ss;
     int id, appearance, year;
     for(int i = 1; i < content.size(); i++){
@@ -42,7 +42,7 @@ vector<SuperHero*> csv2Object(vector<vector<string> > content){
 
             ss << content[i][12];
             ss >> year;
-            superHeroes.push_back(new SuperHero(id, content[i][1], content[i][2], content[i][3], content[i][4], content[i][5], content[i][6], content[i][7], content[i][8], content[i][9], appearance, content[i][11], year));
+            superHeroes.push_back(SuperHero(id, content[i][1], content[i][2], content[i][3], content[i][4], content[i][5], content[i][6], content[i][7], content[i][8], content[i][9], appearance, content[i][11], year));
         }catch(...){
             for(int j = 0; j < 13; j++){
                 if(content[i][j].size() <= 1){
@@ -64,7 +64,7 @@ vector<SuperHero*> csv2Object(vector<vector<string> > content){
             int year;
             ss << content[i][12];
             ss >> year;
-            superHeroes.push_back(new SuperHero(id, content[i][1], content[i][2], content[i][3], content[i][4], content[i][5], content[i][6], content[i][7], content[i][8], content[i][9], appearance, content[i][11], year));
+            superHeroes.push_back(SuperHero(id, content[i][1], content[i][2], content[i][3], content[i][4], content[i][5], content[i][6], content[i][7], content[i][8], content[i][9], appearance, content[i][11], year));
             cout << content[i][0] << endl;
         }
     }
@@ -72,20 +72,20 @@ vector<SuperHero*> csv2Object(vector<vector<string> > content){
 }
 
 template <typename T>
-void swapData(T* data1, T* data2){
+void swapData(T *data1, T *data2){
     T tempValue = *data1;
     *data1 = *data2;
     *data2 = tempValue;
 }
 
 template <typename T>
-void bubbleSort(T arr[], int size){
+void bubbleSort(T* arr, int size){
     bool sorted = false;
     while(!sorted){
         sorted = true;
         for(int j = 0; j < size - 1; j++){
-            if(arr[j] > arr[j + 1]){
-                swapData(&arr[j], &arr[j + 1]);
+            if((*arr)[j] > (*arr)[j + 1]){
+                swapData(&(*arr)[j], &(*arr)[j + 1]);
                 sorted = false;
             }
         }

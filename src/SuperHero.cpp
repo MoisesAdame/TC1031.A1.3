@@ -126,10 +126,10 @@ void SuperHero::setYear(int year){
 }
 
 // Additional methods
-bool SuperHero::operator > (SuperHero* &superHero){
-    return name > superHero->getName();
+bool SuperHero::operator > (SuperHero &superHero){
+    return name > superHero.getName();
 }
 
-bool SuperHero::operator < (SuperHero* &superHero){
-    return name < superHero->getName();
+bool SuperHero::operator < (SuperHero &superHero){
+    return name < superHero.getName();
 }

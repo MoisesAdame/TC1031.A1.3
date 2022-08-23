@@ -59,8 +59,8 @@ class SuperHero{
         void setYear(int year);
         
         // Additional methods
-        bool operator > (SuperHero* &superHero);
-        bool operator < (SuperHero* &superHero);
+        bool operator > (SuperHero &superHero);
+        bool operator < (SuperHero &superHero);
 };
 
 #endif
