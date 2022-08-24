@@ -6,9 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <vector>
 using namespace std;
-
 
 void readCsv(string csvDocumentName, string content[16377][14]){
     string line, word;
@@ -92,7 +90,7 @@ void bubbleSort(T* arr, int size){
 }
 
 template <typename T, typename U>
-int linearSearch(T arr, int size, U target){
+int linearSearch(T* arr, int size, U target){
     for(int i = 0; i < size; i++){
         if(arr[i] == target){
             return i;
@@ -101,11 +99,11 @@ int linearSearch(T arr, int size, U target){
     return -1;
 }
 
-void writeCsv(vector<SuperHero> superHeroes){
+void writeCsv(SuperHero superHeroes[]){
     fstream file ("marvel-sorted.csv", ios::out);
     if(file.is_open()){
         file << "page_id,name,urlslug,ID,ALIGN,EYE,HAIR,SEX,GSM,ALIVE,APPEARANCES,FIRST APPEARANCE,Year\n";
-        for(int i = 0; i < superHeroes.size(); i++){
+        for(int i = 0; i < 16377; i++){
             file << superHeroes[i].toCsvLine();
         }
         file.close();
