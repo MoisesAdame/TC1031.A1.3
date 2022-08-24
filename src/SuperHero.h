@@ -24,6 +24,7 @@ class SuperHero{
 
     public:
         // Constructor Method
+        SuperHero();
         SuperHero(int pageID, string name, string urlslug, string ID, string align, string eye,
                   string hair, string sex, string gsm, string alive, int appearances,
                   string firstAppearance, int year);

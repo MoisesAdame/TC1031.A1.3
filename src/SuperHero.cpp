@@ -1,6 +1,21 @@
 #include "SuperHero.h"
 
 // Constructor Method
+SuperHero::SuperHero(){
+    pageID = -1;
+    name = "No Data";
+    urlslug = "No Data";
+    ID = "No Data";
+    align = "No Data";
+    eye = "No Data";
+    hair = "No Data";
+    sex = "No Data";
+    gsm = "No Data";
+    alive = "No Data";
+    appearances = -1;
+    firstAppearance = "No Data";
+    year = -1;
+}
 SuperHero::SuperHero(int pageID, string name, string urlslug, string ID, string align, string eye,
                      string hair, string sex, string gsm, string alive, int appearances,
                      string firstAppearance, int year){
@@ -134,7 +149,7 @@ void SuperHero::print(){
          << "\t- Hair: " << hair << endl
          << "\t- Sex: " << sex << endl
          << "\t- GSM: " << gsm << endl
-         << "\t- Alive:" << alive << endl
+         << "\t- Alive: " << alive << endl
          << "\t- Appearances: " << appearances << endl
          << "\t- First Appearance: " << firstAppearance << endl
          << "\t- Year: " << year  << endl

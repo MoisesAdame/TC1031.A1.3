@@ -9,28 +9,26 @@
 #include <vector>
 using namespace std;
 
-vector<vector<string> > readCsv(string csvDocumentName){
+
+void readCsv(string csvDocumentName, string content[16377][14]){
     string line, word;
-    vector<vector<string> > content;
-    vector<string> row;
     fstream file (csvDocumentName, ios::in);
     if(file.is_open()){
+        int countRow = 0;
         while(getline(file, line)){
-            row.clear();
-            stringstream str(line);
-            while(getline(str, word, ',')){
-                row.push_back(word);
+            stringstream s(line);
+            int countColumn = 0;
+            while(getline(s, word, ',')){
+                content[countRow][countColumn++] = word;
             }
-            content.push_back(row);
+            countRow++;
         }
     }
     file.close();
-    return content;
 }
 
-vector<SuperHero> csv2Object(vector<vector<string> > content){
-    vector<SuperHero> superHeroes;
-    for(int i = 1; i < content.size(); i++){
+void csv2Object(string content[16377][14], SuperHero array[16377]){
+    for(int i = 1; i < 16377; i++){
         try{
             int id, appearance, year;
             stringstream s1;
@@ -44,14 +42,14 @@ vector<SuperHero> csv2Object(vector<vector<string> > content){
             stringstream s3;
             s3 << content[i][12];
             s3 >> year;
-            superHeroes.push_back(SuperHero(id, content[i][1], content[i][2], content[i][3], content[i][4], content[i][5], content[i][6], content[i][7], content[i][8], content[i][9], appearance, content[i][11], year));
+            array[i - 1] = (SuperHero(id, content[i][1], content[i][2], content[i][3], content[i][4], content[i][5], content[i][6], content[i][7], content[i][8], content[i][9], appearance, content[i][11], year));
         }catch(...){
             for(int j = 0; j < 13; j++){
                 if(content[i][j].size() <= 1){
                     if(j == 10 || j == 12){
-                        content[i][j].push_back('1');
+                        content[i][j] = "-1";
                     }else{
-                        content[i][j].push_back(' ');
+                        content[i][j] = "No data";
                     }
                 }
             }
@@ -67,15 +65,13 @@ vector<SuperHero> csv2Object(vector<vector<string> > content){
             stringstream s3;
             s3 << content[i][12];
             s3 >> year;
-            superHeroes.push_back(SuperHero(id, content[i][1], content[i][2], content[i][3], content[i][4], content[i][5], content[i][6], content[i][7], content[i][8], content[i][9], appearance, content[i][11], year));
-            cout << content[i][0] << endl;
+            array[i - 1] = SuperHero(id, content[i][1], content[i][2], content[i][3], content[i][4], content[i][5], content[i][6], content[i][7], content[i][8], content[i][9], appearance, content[i][11], year);
         }
     }
-    return superHeroes;
 }
 
 template <typename T>
-void swapData(T *data1, T *data2){
+void swapData(T* data1, T* data2){
     T tempValue = *data1;
     *data1 = *data2;
     *data2 = tempValue;
@@ -87,8 +83,8 @@ void bubbleSort(T* arr, int size){
     while(!sorted){
         sorted = true;
         for(int j = 0; j < size - 1; j++){
-            if((*arr)[j] > (*arr)[j + 1]){
-                swapData(&(*arr)[j], &(*arr)[j + 1]);
+            if(arr[j] > arr[j + 1]){
+                swapData<T>(&arr[j], &arr[j + 1]);
                 sorted = false;
             }
         }
