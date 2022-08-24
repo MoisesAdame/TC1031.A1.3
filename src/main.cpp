@@ -9,7 +9,7 @@ int main(){
     SuperHero* superHeros = new SuperHero[16377];
 
     cout << "Array to object..." << endl;
-    csv2Object(content, superHeros);
+    arr2obj(content, superHeros);
 
     cout << "Sorting..." << endl;
     bubbleSort<SuperHero>(superHeros, 16377);
@@ -26,6 +26,8 @@ int main(){
             superHeros[indexTarget++].print();
         }
     }
+
+    writeCsv<SuperHero>(superHeros, 16377);
 
     return 0;
 }

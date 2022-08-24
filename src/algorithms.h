@@ -25,7 +25,7 @@ void readCsv(string csvDocumentName, string content[16377][14]){
     file.close();
 }
 
-void csv2Object(string content[16377][14], SuperHero array[16377]){
+void arr2obj(string content[16377][14], SuperHero array[16377]){
     for(int i = 1; i < 16377; i++){
         try{
             int id, appearance, year;
@@ -99,11 +99,12 @@ int linearSearch(T* arr, int size, U target){
     return -1;
 }
 
-void writeCsv(SuperHero superHeroes[]){
+template <typename T>
+void writeCsv(T* superHeroes, int size){
     fstream file ("marvel-sorted.csv", ios::out);
     if(file.is_open()){
         file << "page_id,name,urlslug,ID,ALIGN,EYE,HAIR,SEX,GSM,ALIVE,APPEARANCES,FIRST APPEARANCE,Year\n";
-        for(int i = 0; i < 16377; i++){
+        for(int i = 0; i < size; i++){
             file << superHeroes[i].toCsvLine();
         }
         file.close();
