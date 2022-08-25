@@ -14,6 +14,7 @@ using namespace std;
 
 class SuperHero{
     private:
+        // Class atributes
         int pageID;
         string name;
         string urlslug;

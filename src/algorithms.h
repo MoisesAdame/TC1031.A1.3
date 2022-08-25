@@ -2,8 +2,7 @@
 //          Noemí Abigail Curiel López (A01655892)
 //          Cristóbal Eleazar Meza Aranda (A01661792)
 // Fecha: 24 de Agosto del 2022
-// Descripción: Header que contiene todos los algoritmos 
-// utilizados en el programa.
+// Descripción: Header que contiene todos los algoritmos utilizados en el programa.
 
 #ifndef __ALGORITHMS
 #define __ALGORITHMS
@@ -18,6 +17,7 @@ using namespace std;
 // Función que como parámetros toma  una cadena con el nombre de la base de datos
 // y una matriz de cadenas la cual llena partiendo de los datos contenidos en la 
 // base de datos.
+// Complejidad: O(columnas * filas) -> O(n²)
 void readCsv(string csvDocumentName, string content[16377][14]){
     string line, word;
     fstream file (csvDocumentName, ios::in);
@@ -44,6 +44,7 @@ void readCsv(string csvDocumentName, string content[16377][14]){
 // Función que como parámetros toma una matriz de cadenas llena con la 
 // información de la base de datos y un array de tipo SuperHero. Con la
 // matriz, se instancia cada objeto de tipo SuperHero y se añade al array.
+// Complejidad: O(columnas) -> O(n)
 void arr2obj(string content[16377][14], SuperHero array[16376]){
     // Se utiliza error handling por cualquier error que llega a haber a la 
     // hora de almacenar los datos.
@@ -91,6 +92,7 @@ void arr2obj(string content[16377][14], SuperHero array[16376]){
 
 // Función que toma dos datos de un array y los intercambia de posición
 // Tomando como parámetros dos datos de un array con el mismo tipo. 
+// Complejidad: O(1)
 template <typename T>
 void swapData(T* data1, T* data2){
     T tempValue = *data1;
@@ -101,6 +103,7 @@ void swapData(T* data1, T* data2){
 // Función que toma como parámetros un array de cualquier tipo y un entero
 // que representa el tamaño de el array y los ordena haciendo uso de la 
 // función swapData(). 
+// Complejidad: O(columnas * columnas) -> O(n²)
 template <typename T>
 void bubbleSort(T* arr, int size){
     // Mientras el array no esté completamente ordenado se sigue iterando sobre este.
@@ -123,6 +126,7 @@ void bubbleSort(T* arr, int size){
 // cardinalidad de este array y un valor target de cualquier tipo (igual o diferente al del array).
 // Con esta información, busca todos los elementos iguales a target, los imprime y los almacena
 // en un documento .csv
+// Complejidad: O(columnas) -> O(n)
 template <typename T, typename U>
 void linearSearch(T* arr, int size, U target){
     int index = 0;
@@ -152,6 +156,28 @@ void linearSearch(T* arr, int size, U target){
     if(index == size){
         cout << "No matches found!" << endl;
     }   
+}
+
+// Función que imprime un ascii text como encabezado y limpia la terminal.
+// Complejidad: O(1)
+void printHeader(){
+    // Limpiamos la pantalla (Se tomnan en cuenta OS WINDOWS y APPLE)
+    #ifdef _WIN32
+    system("cls");
+    #endif
+
+    #ifdef __APPLE__
+    system("clear");
+    #endif
+
+    // Imprimimos en cabezado
+    cout << "_____________________________________________________________________" << endl;
+    cout << "    __  ___                      __   __  __                         " << endl;
+    cout << "   /  |/  /___ _______   _____  / /  / / / /__  _________  ___  _____" << endl;
+    cout << "  / /|_/ / __ `/ ___/ | / / _ \\/ /  / /_/ / _ \\/ ___/ __ \\/ _ \\/ ___/" << endl;
+    cout << " / /  / / /_/ / /   | |/ /  __/ /  / __  /  __/ /  / /_/ /  __(__  ) " << endl;
+    cout << "/_/  /_/\\__,_/_/    |___/\\___/_/  /_/ /_/\\___/_/   \\____/\\___/____/  " << endl;
+    cout << "_____________________________________________________________________\n" << endl;  
 }
 
 #endif
