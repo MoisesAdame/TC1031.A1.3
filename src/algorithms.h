@@ -25,8 +25,8 @@ void readCsv(string csvDocumentName, string content[16377][14]){
     file.close();
 }
 
-void arr2obj(string content[16377][14], SuperHero array[16377]){
-    for(int i = 1; i < 16377; i++){
+void arr2obj(string content[16377][14], SuperHero array[16376]){
+    for(int i = 1; i < 16376; i++){
         try{
             int id, appearance, year;
             stringstream s1;
@@ -90,25 +90,25 @@ void bubbleSort(T* arr, int size){
 }
 
 template <typename T, typename U>
-int linearSearch(T* arr, int size, U target){
-    for(int i = 0; i < size; i++){
-        if(arr[i] == target){
-            return i;
-        }
-    }
-    return -1;
-}
-
-template <typename T>
-void writeCsv(T* superHeroes, int size){
+void linearSearch(T* arr, int size, U target){
+    int index = 0;
     fstream file ("marvel-sorted.csv", ios::out);
     if(file.is_open()){
         file << "page_id,name,urlslug,ID,ALIGN,EYE,HAIR,SEX,GSM,ALIVE,APPEARANCES,FIRST APPEARANCE,Year\n";
-        for(int i = 0; i < size; i++){
-            file << superHeroes[i].toCsvLine();
+        for(;index < size;index++){
+            if(arr[index] == target){
+                break;
+            }
+        }
+        while(arr[index] == target && index < size){
+            arr[index].print();
+            file << arr[index++].toCsvLine();
         }
         file.close();
     }
+    if(index == size){
+        cout << "No matches found!" << endl;
+    }   
 }
 
 #endif
