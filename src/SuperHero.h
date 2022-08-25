@@ -1,3 +1,9 @@
+// Autores: Moisés Adame Aguilar (A01660927)
+//          Noemí Abigail Curiel López (A01655892)
+//          Cristóbal Eleazar Meza Aranda (A01661792)
+// Fecha: 24 de Agosto del 2022
+// Descripción: Encabezado de la clase SuperHero
+
 #ifndef __SUPERHERO
 #define __SUPERHERO
 

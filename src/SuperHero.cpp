@@ -1,6 +1,13 @@
+// Autores: Moisés Adame Aguilar (A01660927)
+//          Noemí Abigail Curiel López (A01655892)
+//          Cristóbal Eleazar Meza Aranda (A01661792)
+// Fecha: 24 de Agosto del 2022
+// Descripción: Implementación de la clase SuperHero
+
 #include "SuperHero.h"
 
-// Constructor Method
+// Constructor Methods
+// Método Constructor Default 
 SuperHero::SuperHero(){
     pageID = -1;
     name = "No Data";
@@ -16,6 +23,8 @@ SuperHero::SuperHero(){
     firstAppearance = "No Data";
     year = -1;
 }
+
+// Método constructor en el que se definen todos los aspectos del super héroe.
 SuperHero::SuperHero(int pageID, string name, string urlslug, string ID, string align, string eye,
                      string hair, string sex, string gsm, string alive, int appearances,
                      string firstAppearance, int year){
@@ -34,6 +43,7 @@ SuperHero::SuperHero(int pageID, string name, string urlslug, string ID, string 
     this->year = year;
 }
 
+// Getter Methods
 int SuperHero::getPageID(){
     return pageID;
 }
@@ -141,6 +151,8 @@ void SuperHero::setYear(int year){
 }
 
 // Additional methods
+// Método print() que imprime con formato todos los aspectos del super héroe
+// no recibe parámetros.
 void SuperHero::print(){
     cout << "[*] " << name << endl
          << "\t- Identity: " << ID << endl
@@ -156,6 +168,8 @@ void SuperHero::print(){
          << endl;
 }
 
+// Método que regresa una cadena en formato de línea csv con todos 
+// los aspectos del super héroe. No recibe parámetros.
 string SuperHero::toCsvLine(){
     string line = "";
     line += to_string(pageID) + ",";
@@ -175,14 +189,25 @@ string SuperHero::toCsvLine(){
     return line;
 }
 
+// Operator overloading con el símbolo (>) el cual, al ser utilizado
+// sobre dos objetos de tipo SuperHero regresa un booleano true si 
+// la cadena del objeto de la izquierda tiene un orden mayor.
+// No recibe parámetros.
 bool SuperHero::operator > (SuperHero &superHero){
     return name > superHero.getName();
 }
 
+// Operator overloading con el símbolo (<) el cual, al ser utilizado
+// sobre dos objetos de tipo SuperHero regresa un booleano true si 
+// la cadena del objeto de la derecha tiene un orden mayor.
+// No recibe parámetros.
 bool SuperHero::operator < (SuperHero &superHero){
     return name < superHero.getName();
 }
 
+// Operator overloading con el símbolo (==) el cual, al ser utilizado
+// sobre un objeto de tipo SuperHero y un char regresa true si este
+// último es igual a la primera letra del nombre del super héroe.
 bool SuperHero::operator == (char firstLetter){
     return name[0] == firstLetter;
 }
