@@ -7,7 +7,10 @@
 #include "SuperHero.h"
 
 // Constructor Methods
+
 // Método Constructor Default 
+// No recibe parámetros
+// No tiene return type.
 // Complejidad: O(1)
 SuperHero::SuperHero(){
     pageID = -1;
@@ -27,6 +30,7 @@ SuperHero::SuperHero(){
 
 // Método constructor en el que se definen todos los aspectos del super héroe.
 // Como parámetros se pasan todos los atributos de la clase.
+// No tiene return type.
 // Complejidad: O(1)
 SuperHero::SuperHero(int pageID, string name, string urlslug, string ID, string align, string eye,
                      string hair, string sex, string gsm, string alive, int appearances,
