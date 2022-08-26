@@ -17,7 +17,7 @@ int main(){
     printHeader();
 
     // Se lee el csv y se pasa a array de tipo matriz
-    // Complejidad (columnas * fiilas) -> O(n²)
+    // Complejidad (columnas * filas) -> O(n²)
     cout << "[*] Csv to array..." << endl;
     string content[16377][14];
     readCsv("marvel-wikia-data.csv", content);
@@ -30,7 +30,7 @@ int main(){
     cout << "[*] Array to object..." << endl;
     arr2obj(content, superHeros);
 
-    // Se ordena el array de super héroes usando bubble sort.
+    // Se ordena el array de superhéroes usando bubble sort.
     // Complejidad (columnas * columnas) -> O(n²)
     cout << "[*] Sorting..." << endl;
     bubbleSort<SuperHero>(superHeros, 16376);
