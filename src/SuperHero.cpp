@@ -26,6 +26,7 @@ SuperHero::SuperHero(){
 }
 
 // Método constructor en el que se definen todos los aspectos del super héroe.
+// Como parámetros se pasan todos los atributos de la clase.
 // Complejidad: O(1)
 SuperHero::SuperHero(int pageID, string name, string urlslug, string ID, string align, string eye,
                      string hair, string sex, string gsm, string alive, int appearances,
