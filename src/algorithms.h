@@ -161,7 +161,7 @@ void linearSearch(T* arr, int size, U target){
 // Función que imprime un ascii text como encabezado y limpia la terminal.
 // Complejidad: O(1)
 void printHeader(){
-    // Limpiamos la pantalla (Se tomnan en cuenta OS WINDOWS y APPLE)
+    // Limpiamos la pantalla (Se toman en cuenta OS WINDOWS y APPLE)
     #ifdef _WIN64
     system("cls");
     #endif
