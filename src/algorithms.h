@@ -162,7 +162,7 @@ void linearSearch(T* arr, int size, U target){
 // Complejidad: O(1)
 void printHeader(){
     // Limpiamos la pantalla (Se tomnan en cuenta OS WINDOWS y APPLE)
-    #ifdef _WIN32
+    #ifdef _WIN64
     system("cls");
     #endif
 
