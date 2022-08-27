@@ -18,7 +18,7 @@ using namespace std;
 // y una matriz de cadenas la cual llena partiendo de los datos contenidos en la 
 // base de datos.
 // No hay valor de retorno
-// Complejidad: O(columnas * filas)
+// Complejidad: O(columnas * filas) -> O(n*m)
 void readCsv(string csvDocumentName, string content[16377][14]){
     string line, word;
     fstream file (csvDocumentName, ios::in);
@@ -27,13 +27,13 @@ void readCsv(string csvDocumentName, string content[16377][14]){
     if(file.is_open()){
         int countRow = 0;
         // Se recorre sobre cada fila de la base de datos.
-        while(getline(file, line)){
+        while(getline(file, line)){ // O(14*n)
             stringstream s(line);
             int countColumn = 0;
 
             // Se recorre sobre cada columna, de la fila analizada y 
             // se almacena en la matriz cada valor.
-            while(getline(s, word, ',')){
+            while(getline(s, word, ',')){ // O(m)
                 content[countRow][countColumn++] = word;
             }
             countRow++;
@@ -50,7 +50,7 @@ void readCsv(string csvDocumentName, string content[16377][14]){
 void arr2obj(string content[16377][14], SuperHero array[16376]){
     // Se utiliza error handling por cualquier error que llega a haber a la 
     // hora de almacenar los datos.
-    for(int i = 1; i < 16376; i++){
+    for(int i = 1; i < 16376; i++){  //O(n)
         try{
             int id, appearance, year;
             stringstream s1;
@@ -66,7 +66,7 @@ void arr2obj(string content[16377][14], SuperHero array[16376]){
             s3 >> year;
             array[i - 1] = (SuperHero(id, content[i][1], content[i][2], content[i][3], content[i][4], content[i][5], content[i][6], content[i][7], content[i][8], content[i][9], appearance, content[i][11], year));
         }catch(...){
-            for(int j = 0; j < 13; j++){
+            for(int j = 0; j < 13; j++){ // O(n)
                 if(content[i][j].size() <= 1){
                     if(j == 10 || j == 12){
                         content[i][j] = "-1";
@@ -112,12 +112,12 @@ template <typename T>
 void bubbleSort(T* arr, int size){
     // Mientras el array no esté completamente ordenado se sigue iterando sobre este.
     bool sorted = false;
-    while(!sorted){
+    while(!sorted){ // O(n)
         sorted = true;
 
         // Se itera sobre cada elemento del array y si se cumple que el valor de la izquierda 
         // es mayor al de la derecha se intercambian los valores usando swapData().
-        for(int j = 0; j < size - 1; j++){
+        for(int j = 0; j < size - 1; j++){. //O(n)
             if(arr[j] > arr[j + 1]){
                 swapData<T>(&arr[j], &arr[j + 1]);
                 sorted = false;
@@ -143,14 +143,14 @@ void linearSearch(T* arr, int size, U target){
         file << "page_id,name,urlslug,ID,ALIGN,EYE,HAIR,SEX,GSM,ALIVE,APPEARANCES,FIRST APPEARANCE,Year\n";
 
         // Se itera sobre todo el array hasta encontrar el índice del primer elemento igual a target.
-        for(;index < size;index++){
+        for(;index < size;index++){ //O(n)
             if(arr[index] == target){
                 break;
             }
         }
 
         // Se imprimen y almacenan en el csv todos los elementos iguales a target.
-        while(arr[index] == target && index < size){
+        while(arr[index] == target && index < size){ //O(n)
             arr[index].print();
             file << arr[index++].toCsvLine();
         }
