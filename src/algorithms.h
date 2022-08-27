@@ -18,7 +18,7 @@ using namespace std;
 // y una matriz de cadenas la cual llena partiendo de los datos contenidos en la 
 // base de datos.
 // No hay valor de retorno
-// Complejidad: O(columnas * filas) -> O(n²)
+// Complejidad: O(columnas * filas)
 void readCsv(string csvDocumentName, string content[16377][14]){
     string line, word;
     fstream file (csvDocumentName, ios::in);
@@ -46,7 +46,7 @@ void readCsv(string csvDocumentName, string content[16377][14]){
 // información de la base de datos y un array de tipo SuperHero. Con la
 // matriz, se instancia cada objeto de tipo SuperHero y se añade al array.
 // No hay valor de retorno
-// Complejidad: O(columnas) -> O(n)
+// Complejidad: O(filas)
 void arr2obj(string content[16377][14], SuperHero array[16376]){
     // Se utiliza error handling por cualquier error que llega a haber a la 
     // hora de almacenar los datos.
@@ -107,7 +107,7 @@ void swapData(T* data1, T* data2){
 // que representa el tamaño de el array y los ordena haciendo uso de la 
 // función swapData(). 
 // No hay valor de retorno
-// Complejidad: O(n²)
+// Complejidad: O(filas * filas)
 template <typename T>
 void bubbleSort(T* arr, int size){
     // Mientras el array no esté completamente ordenado se sigue iterando sobre este.
@@ -131,7 +131,7 @@ void bubbleSort(T* arr, int size){
 // Con esta información, busca todos los elementos iguales a target, los imprime y los almacena
 // en un documento .csv
 // No hay valor de retorno
-// Complejidad: O(columnas) -> O(n)
+// Complejidad: O(filas)
 template <typename T, typename U>
 void linearSearch(T* arr, int size, U target){
     int index = 0;
