@@ -2,8 +2,8 @@
 //          Noemí Abigail Curiel López (A01655892)
 //          Cristóbal Eleazar Meza Aranda (A01661792)
 // Fecha: 24 de Agosto del 2022
-// Descripción: Programa que lee un csv con la información de los super héroes
-// de marvel, los parsea como objetos de tipo SuperHero, los ordena alfabéticamente
+// Descripción: Programa que lee un csv con la información de los superhéroes
+// de Marvel, los pasa como objetos de tipo SuperHero, los ordena alfabéticamente
 // y finalmente pide la primera letra del nombre de todos los superhéroes que serán
 // presentados en pantalla y a la vez almacenados en un nuevo csv.
 // Complejidadd General: O(n²). Las columnas y filas hacen referencia a 
