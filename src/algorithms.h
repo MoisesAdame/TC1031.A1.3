@@ -117,7 +117,7 @@ void bubbleSort(T* arr, int size){
 
         // Se itera sobre cada elemento del array y si se cumple que el valor de la izquierda 
         // es mayor al de la derecha se intercambian los valores usando swapData().
-        for(int j = 0; j < size - 1; j++){. //O(n)
+        for(int j = 0; j < size - 1; j++){ //O(n)
             if(arr[j] > arr[j + 1]){
                 swapData<T>(&arr[j], &arr[j + 1]);
                 sorted = false;
